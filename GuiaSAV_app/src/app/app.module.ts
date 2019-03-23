@@ -12,7 +12,6 @@ import { ContencaoFisicaPageModule } from '../pages/contencao-fisica/contencao-f
 import { DicionarioTermoPageModule } from '../pages/dicionario-termo/dicionario-termo.module';
 import { EquipamentoMonitorizacaoPageModule } from '../pages/equipamento-monitorizacao/equipamento-monitorizacao.module';
 import { ExameFisicoGeralPageModule } from '../pages/exame-fisico-geral/exame-fisico-geral.module';
-import { FarmacologiaPageModule } from '../pages/farmacologia/farmacologia.module';
 import { FormulaPageModule } from '../pages/formula/formula.module';
 import { InstrumentoCirurgicoPageModule } from '../pages/instrumento-cirurgico/instrumento-cirurgico.module';
 import { VerificacaoSinalVitalPageModule } from '../pages/verificacao-sinal-vital/verificacao-sinal-vital.module';
@@ -29,6 +28,7 @@ import { ControleAmbientePageModule } from '../pages/controle-ambiente/controle-
 import { AventalPageModule } from '../pages/avental/avental.module';
 import { MaterialPerfuroCortantePageModule } from '../pages/material-perfuro-cortante/material-perfuro-cortante.module';
 import { ManuseioLuvaEsterilPageModule } from '../pages/manuseio-luva-esteril/manuseio-luva-esteril.module';
+import { FarmacologiaPageModule } from '../pages/farmacologia/farmacologia.module';
 
 @NgModule({
   declarations: [

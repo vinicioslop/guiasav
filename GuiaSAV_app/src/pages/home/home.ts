@@ -6,7 +6,7 @@ import { ContencaoFisicaPage } from '../contencao-fisica/contencao-fisica';
 import { DicionarioTermoPage } from '../dicionario-termo/dicionario-termo';
 import { EquipamentoMonitorizacaoPage } from '../equipamento-monitorizacao/equipamento-monitorizacao';
 import { ExameFisicoGeralPage } from '../exame-fisico-geral/exame-fisico-geral';
-import { FarmacologiaPage } from '../farmacologia/farmacologia';
+import { FarmacologiaPageModule } from '../farmacologia/farmacologia.module';
 import { FormulaPage } from '../formula/formula';
 import { InstrumentoCirurgicoPage } from '../instrumento-cirurgico/instrumento-cirurgico';
 import { PrecaucaoPadraoPage } from '../precaucao-padrao/precaucao-padrao';
@@ -40,7 +40,7 @@ export class HomePage {
     this.navCtrl.push(ExameFisicoGeralPage);
   }
   farmacologiaClick(){
-    this.navCtrl.push(FarmacologiaPage);
+    this.navCtrl.push(FarmacologiaPageModule);
   }
   formulaClick(){
     this.navCtrl.push(FormulaPage);
@@ -51,7 +51,7 @@ export class HomePage {
   precaucao_padraoClick(){
     this.navCtrl.push(PrecaucaoPadraoPage);
   }
-  ver_sinais_vitaisClick(){
+  ver_sinal_vitalClick(){
     this.navCtrl.push(VerificacaoSinalVitalPage);
   }
 }
