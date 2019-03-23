@@ -6,11 +6,11 @@ import { ContencaoFisicaPage } from '../contencao-fisica/contencao-fisica';
 import { DicionarioTermoPage } from '../dicionario-termo/dicionario-termo';
 import { EquipamentoMonitorizacaoPage } from '../equipamento-monitorizacao/equipamento-monitorizacao';
 import { ExameFisicoGeralPage } from '../exame-fisico-geral/exame-fisico-geral';
-import { FarmacologiaPageModule } from '../farmacologia/farmacologia.module';
 import { FormulaPage } from '../formula/formula';
 import { InstrumentoCirurgicoPage } from '../instrumento-cirurgico/instrumento-cirurgico';
 import { PrecaucaoPadraoPage } from '../precaucao-padrao/precaucao-padrao';
 import { VerificacaoSinalVitalPage } from '../verificacao-sinal-vital/verificacao-sinal-vital';
+import { FarmacologiaPage } from '../farmacologia/farmacologia';
 
 @Component({
   selector: 'page-home',
@@ -20,6 +20,9 @@ export class HomePage {
 
   constructor(public navCtrl: NavController) {
 
+  }
+  farmacologiaClick(){
+    this.navCtrl.push(FarmacologiaPage);
   }
   anatomiaClick(){
     this.navCtrl.push(AnatomiaPage);
@@ -38,9 +41,6 @@ export class HomePage {
   }
   ex_fisicoClick(){
     this.navCtrl.push(ExameFisicoGeralPage);
-  }
-  farmacologiaClick(){
-    this.navCtrl.push(FarmacologiaPageModule);
   }
   formulaClick(){
     this.navCtrl.push(FormulaPage);
