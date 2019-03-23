@@ -28,7 +28,6 @@ import { ControleAmbientePageModule } from '../pages/controle-ambiente/controle-
 import { AventalPageModule } from '../pages/avental/avental.module';
 import { MaterialPerfuroCortantePageModule } from '../pages/material-perfuro-cortante/material-perfuro-cortante.module';
 import { ManuseioLuvaEsterilPageModule } from '../pages/manuseio-luva-esteril/manuseio-luva-esteril.module';
-import { FarmacologiaPage } from '../pages/farmacologia/farmacologia';
 import { FarmacologiaPageModule } from '../pages/farmacologia/farmacologia.module';
 
 @NgModule({
