@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { AnatomiaPage } from '../anatomia/anatomia';
-import { AbreviacaoPage } from '../abreviacao/abreviacao';
-import { ContencaoFisicaPage } from '../contencao-fisica/contencao-fisica';
-import { DicionarioTermoPage } from '../dicionario-termo/dicionario-termo';
-import { EquipamentoMonitorizacaoPage } from '../equipamento-monitorizacao/equipamento-monitorizacao';
-import { ExameFisicoGeralPage } from '../exame-fisico-geral/exame-fisico-geral';
-import { FormulaPage } from '../formula/formula';
-import { InstrumentoCirurgicoPage } from '../instrumento-cirurgico/instrumento-cirurgico';
-import { PrecaucaoPadraoPage } from '../precaucao-padrao/precaucao-padrao';
-import { VerificacaoSinalVitalPage } from '../verificacao-sinal-vital/verificacao-sinal-vital';
-import { FarmacologiaPage } from '../farmacologia/farmacologia';
+
+import { AnatomiaCatPage } from '../anatomia-cat/anatomia-cat';
+import { AbreviacaoCatPage } from '../abreviacao-cat/abreviacao-cat';
+import { ContencaoFisicaCatPage } from '../contencao_fisica-cat/contencao_fisica-cat';
+import { DicionarioTermoCatPage } from '../dicionario_termo-cat/dicionario_termo-cat';
+import { EquipamentoMonitorizacaoCatPage } from '../equipamento_monitorizacao-cat/equipamento_monitorizacao-cat';
+import { ExameFisicoGeralCatPage } from '../exame_fisico_geral-cat/exame_fisico_geral-cat';
+import { FormulaCatPage } from '../formula-cat/formula-cat';
+import { InstrumentoCirurgicoCatPage } from '../intrumento_cirurgico-cat/instrumento_cirurgico-cat';
+import { PrecaucaoPadraoCatPage } from '../precaucao_padrao-cat/precaucao_padrao-cat';
+import { VerificacaoSinalVitalCatPage } from '../verficacao_sinal_vital-cat/verificacao_sinal_vital-cat';
+import { FarmacologiaCatPage } from '../farmacologia-cat/farmacologia-cat';
 
 @Component({
   selector: 'page-home',
@@ -22,36 +23,36 @@ export class HomePage {
 
   }
   farmacologiaClick(){
-    this.navCtrl.push(FarmacologiaPage);
+    this.navCtrl.push(FarmacologiaCatPage);
   }
   anatomiaClick(){
-    this.navCtrl.push(AnatomiaPage);
+    this.navCtrl.push(AnatomiaCatPage);
   }
   abreviacaoClick(){
-    this.navCtrl.push(AbreviacaoPage);
+    this.navCtrl.push(AbreviacaoCatPage);
   }
   cont_fisicoClick(){
-    this.navCtrl.push(ContencaoFisicaPage);
+    this.navCtrl.push(ContencaoFisicaCatPage);
   }
   dic_termoClick(){
-    this.navCtrl.push(DicionarioTermoPage);
+    this.navCtrl.push(DicionarioTermoCatPage);
   }
   eq_monitorizacaoClick(){
-    this.navCtrl.push(EquipamentoMonitorizacaoPage);
+    this.navCtrl.push(EquipamentoMonitorizacaoCatPage);
   }
   ex_fisicoClick(){
-    this.navCtrl.push(ExameFisicoGeralPage);
+    this.navCtrl.push(ExameFisicoGeralCatPage);
   }
   formulaClick(){
-    this.navCtrl.push(FormulaPage);
+    this.navCtrl.push(FormulaCatPage);
   }
   ins_cirurgicoClick(){
-    this.navCtrl.push(InstrumentoCirurgicoPage);
+    this.navCtrl.push(InstrumentoCirurgicoCatPage);
   }
   precaucao_padraoClick(){
-    this.navCtrl.push(PrecaucaoPadraoPage);
+    this.navCtrl.push(PrecaucaoPadraoCatPage);
   }
   ver_sinal_vitalClick(){
-    this.navCtrl.push(VerificacaoSinalVitalPage);
+    this.navCtrl.push(VerificacaoSinalVitalCatPage);
   }
 }
