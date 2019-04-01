@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-
 import { FormulaCatPage } from './formula-cat';
 
 @NgModule({
@@ -10,8 +9,5 @@ import { FormulaCatPage } from './formula-cat';
   imports: [
     IonicPageModule.forChild(FormulaCatPage),
   ],
-  entryComponents: [
-    FormulaCatPage,
-  ],
 })
-export class FormulaPageCatModule {}
+export class FormulaCatPageModule {}
