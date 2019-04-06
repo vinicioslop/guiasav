@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { PrincipalFarmacoPage } from './principal-farmaco/principal-farmaco';
-import { ViaAplicacaoPage } from './via-aplicacao/via-aplicacao';
-
 @IonicPage()
 @Component({
   selector: 'page-farmacologia-cat',
@@ -19,9 +16,9 @@ export class FarmacologiaCatPage {
   }
 
   principalClick(){
-    this.navCtrl.push(PrincipalFarmacoPage);
+    this.navCtrl.push('PrincipalFarmacoPage');
   }
   viaAplicacaoClick(){
-    this.navCtrl.push(ViaAplicacaoPage);
+    this.navCtrl.push('ViaAplicacaoPage');
   }
 }

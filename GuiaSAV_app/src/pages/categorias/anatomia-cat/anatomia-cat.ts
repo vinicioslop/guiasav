@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { MusculoPage } from './musculo/musculo';
-import { OssoPage } from './osso/osso';
-import { RegiaoAnatomicaPage } from './regiao-anatomica/regiao-anatomica';
-import { ViaPage } from './via/via';
-
 @IonicPage()
 @Component({
   selector: 'page-anatomia-cat',
@@ -21,15 +16,15 @@ export class AnatomiaCatPage {
   }
 
   musculoClick(){
-    this.navCtrl.push(MusculoPage);
+    this.navCtrl.push('MusculoPage');
   }
   ossoClick(){
-    this.navCtrl.push(OssoPage);
+    this.navCtrl.push('OssoPage');
   }
   regiaoClick(){
-    this.navCtrl.push(RegiaoAnatomicaPage);
+    this.navCtrl.push('RegiaoAnatomicaPage');
   }
   viaClick(){
-    this.navCtrl.push(ViaPage);
+    this.navCtrl.push('ViaPage');
   }
 }
