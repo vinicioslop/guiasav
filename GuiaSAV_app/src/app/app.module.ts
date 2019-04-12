@@ -6,11 +6,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { AuthService } from '../providers/auth-service/auth-service';
 
-import { CategoriasPageModule } from '../pages/categorias/categorias.module';
 import { LoginPageModule } from '../pages/login/login.module';
 import { SignPageModule } from '../pages/sign/sign.module';
-import { AuthService } from '../providers/auth-service/auth-service';
+import { PerfilPageModule } from '../pages/perfil/perfil.module';
+
+import { CategoriasPageModule } from '../pages/categorias/categorias.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { AuthService } from '../providers/auth-service/auth-service';
     CategoriasPageModule,
     LoginPageModule,
     SignPageModule,
+    PerfilPageModule,
 
     IonicModule.forRoot(MyApp)
   ],

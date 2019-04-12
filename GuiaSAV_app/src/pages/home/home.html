@@ -1,13 +1,22 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      <ion-title>Menu</ion-title>
+      <ion-title>
+        Menu
+      </ion-title>
     </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+
   <button ion-button color="secondary" round class="full" (click)="categoriaClick()">Categorias</button>
   <button ion-button color="secondary" round class="full" (click)="loginClick()">Login</button>
   <button ion-button color="secondary" round class="full" (click)="signClick()">Sign</button>
+  <button ion-button color="secondary" round class="full" (click)="perfilClick()">Perfil</button>
 </ion-content>

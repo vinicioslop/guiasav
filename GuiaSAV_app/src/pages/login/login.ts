@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading, IonicPage } from 'ionic-angular';
+
 import { AuthService } from '../../providers/auth-service/auth-service';
  
 @IonicPage()
@@ -13,7 +14,7 @@ export class LoginPage {
  
   constructor
     (
-      private nav: NavController, 
+      private navCtrl: NavController, 
       private auth: AuthService, 
       private alertCtrl: AlertController, 
       private loadingCtrl: LoadingController
@@ -21,14 +22,14 @@ export class LoginPage {
   {}
  
   public createAccount() {
-    this.nav.push('LoginPage');
+    this.navCtrl.push('SignPage');
   }
  
   public login() {
     this.showLoading()
     this.auth.login(this.registerCredentials).subscribe(allowed => {
       if (allowed) {        
-        this.nav.setRoot('HomePage');
+        this.navCtrl.setRoot('HomePage');
       } else {
         this.showError("Access Denied");
       }
