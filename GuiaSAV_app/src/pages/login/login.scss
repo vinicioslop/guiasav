@@ -4,10 +4,10 @@ page-login {
         background-size: cover;
         text-align: center;
     }
-    
+
     img{
         margin-top: 30px; //espaço do logo a cima
-        margin-bottom: 50px; //espaço do logo abaixo
+        margin-bottom: 10px; //espaço do logo abaixo
         width: 180px; // img do logo tamanho em pixel
     }
     
@@ -19,7 +19,6 @@ page-login {
         text-decoration: none;
         font-size: 16px;
         margin: 5px;
-        width: 85%;
         border: 2px solid #ffffff;
         transition: all 0.5s ease-in-out;
         height: 35px;
