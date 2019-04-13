@@ -3,12 +3,16 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
  
 export class User {
-  name: string;
+  nome: string;
+  login: string;
   email: string;
+  senha: string;
  
-  constructor(name: string, email: string) {
-    this.name = name;
+  constructor(nome: string, login: string, email: string, senha: string) {
+    this.nome = nome;
+    this.login = login;
     this.email = email;
+    this.senha = senha;
   }
 }
  
@@ -18,13 +22,13 @@ export class AuthService {
  
   public login(credentials) {
     if (credentials.email === null || credentials.password === null) {
-      return Observable.throw("Please insert credentials");
+      return Observable.throw("Por favor, insira suas credencias");
     } else {
       return Observable.create(observer => {
         // At this point make a request to your backend to make a real check!
         //let access = (credentials.password === "pass" && credentials.email === "email");
-        this.currentUser = new User('admin', 'admin@admin');
-        let access = (this.currentUser.name && this.currentUser.email);
+        this.currentUser = new User('Administrador', 'admin', 'admin@admin', 'admin');
+        let access = (this.currentUser.login && this.currentUser.senha);
         observer.next(access);
         observer.complete();
       });
@@ -32,8 +36,8 @@ export class AuthService {
   }
  
   public register(credentials) {
-    if (credentials.email === null || credentials.password === null) {
-      return Observable.throw("Please insert credentials");
+    if (credentials.login === null || credentials.senha === null) {
+      return Observable.throw("Por favor, insira suas credencias");
     } else {
       // At this point store the credentials to your backend!
       return Observable.create(observer => {

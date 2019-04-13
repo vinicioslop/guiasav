@@ -11,13 +11,17 @@ import { LoginPage } from '../login/login';
 })
 export class PerfilPage {
 
-  username = '';
+  nome = '';
+  login = '';
   email = '';
+  senha = '';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthService) {
-    let info = this.auth.getUserInfo();
-    this.username = info.name;
-    this.email = info.email;
+    let user = this.auth.getUserInfo();
+    this.nome = user.nome;
+    this.login = user.login;
+    this.email = user.email;
+    this.senha = user.senha;
     
   }
 

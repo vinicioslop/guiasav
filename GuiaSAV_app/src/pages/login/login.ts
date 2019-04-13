@@ -11,7 +11,7 @@ import { AuthService } from '../../providers/auth-service/auth-service';
 })
 export class LoginPage {
   loading: Loading;
-  registerCredentials = { email: '', password: '' };
+  registerCredentials = { login: '', senha: '' };
  
   constructor
     (
@@ -32,7 +32,7 @@ export class LoginPage {
       if (allowed) {        
         this.navCtrl.setRoot(HomePage);
       } else {
-        this.showError("Access Denied");
+        this.showError("Acesso Negado");
       }
     },
       error => {
@@ -42,7 +42,7 @@ export class LoginPage {
  
   showLoading() {
     this.loading = this.loadingCtrl.create({
-      content: 'Please wait...',
+      content: 'Por favor espere...',
       dismissOnPageChange: true
     });
     this.loading.present();

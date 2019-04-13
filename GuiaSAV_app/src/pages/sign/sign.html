@@ -14,11 +14,27 @@
           <ion-list input>
             
             <ion-item>
-              <ion-input type="text" placeholder="E-mail" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+              <ion-input type="text" placeholder="Nome" name="nome" 
+                [(ngModel)]="registerCredentials.nome" required>
+              </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="Nome de usuário" name="login" 
+                [(ngModel)]="registerCredentials.login" required>
+              </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="E-mail" name="email" 
+                [(ngModel)]="registerCredentials.email" required>
+              </ion-input>
             </ion-item>
             
             <ion-item>
-              <ion-input type="password" placeholder="Senha" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+              <ion-input type="password" placeholder="Senha" name="senha" 
+                [(ngModel)]="registerCredentials.senha" required>
+              </ion-input>
             </ion-item>
             
           </ion-list>
@@ -27,7 +43,8 @@
       
       <ion-row>
         <ion-col>
-          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Cadastro</button>
+          <button ion-button class="submit-btn" full type="submit" 
+            [disabled]="!registerForm.form.valid">Criar conta</button>
         </ion-col>
       </ion-row>
       

@@ -9,11 +9,11 @@ import { AuthService } from '../../providers/auth-service/auth-service';
 })
 export class SignPage {
   createSuccess = false;
-  registerCredentials = { email: '', password: '' };
+  registerCredentials = { nome: '', login: '', email: '', senha: '' };
  
   constructor
     (
-      private nav: NavController, 
+      private navCtrl: NavController, 
       private auth: AuthService, 
       private alertCtrl: AlertController
     )
@@ -23,9 +23,9 @@ export class SignPage {
     this.auth.register(this.registerCredentials).subscribe(success => {
       if (success) {
         this.createSuccess = true;
-        this.showPopup("Sucesso", "conta criada.");
+        this.showPopup("Sucesso", "Conta criada.");
       } else {
-        this.showPopup("Erro", "erro na criação da conta.");
+        this.showPopup("Erro", "Erro na criação da conta.");
       }
     },
       error => {
@@ -42,7 +42,7 @@ export class SignPage {
           text: 'OK',
           handler: data => {
             if (this.createSuccess) {
-              this.nav.popToRoot();
+              this.navCtrl.popToRoot();
             }
           }
         }
