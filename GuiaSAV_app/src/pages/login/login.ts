@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading, IonicPage } from 'ionic-angular';
 
-import { HomePage } from '../home/home';
 import { AuthService } from '../../providers/auth-service/auth-service';
+import { TabsPage } from '../tabs/tabs';
  
 @IonicPage()
 @Component({
@@ -30,7 +30,7 @@ export class LoginPage {
     this.showLoading()
     this.auth.login(this.registerCredentials).subscribe(allowed => {
       if (allowed) {        
-        this.navCtrl.setRoot(HomePage);
+        this.navCtrl.setRoot(TabsPage);
       } else {
         this.showError("Acesso Negado");
       }

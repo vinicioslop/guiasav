@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AuthService } from '../providers/auth-service/auth-service';
+import { TabsPage } from '../pages/tabs/tabs';
 
 import { LoginPageModule } from '../pages/login/login.module';
 import { SignPageModule } from '../pages/sign/sign.module';
@@ -18,6 +19,7 @@ import { CategoriasPageModule } from '../pages/categorias/categorias.module';
   declarations: [
     MyApp,
     HomePage,
+    TabsPage,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import { CategoriasPageModule } from '../pages/categorias/categorias.module';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    TabsPage,
   ],
   providers: [
     StatusBar,
