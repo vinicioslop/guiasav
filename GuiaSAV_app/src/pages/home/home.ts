@@ -10,7 +10,7 @@ import { LoginPage } from '../login/login';
 })
 export class HomePage {
 
-  /*@ViewChild(Slides) slides: Slides;
+  @ViewChild(Slides) slides: Slides;
 
   imageContainer = [
   {name: 'mountain', url:"http://www.mobile-phone.pk/images/wallpapers/mountain_wallpaper_nature_mobile_wallpaper.jpg" },
@@ -21,8 +21,8 @@ export class HomePage {
     this.slides.initialSlide=0;
     this.slides.autoplay = 500;
     this.slides.loop = true;
-    this.slides.speed = 2200;
-  }*/
+    this.slides.speed = 2000;
+  }
 
   constructor(private navCtrl: NavController, public appCtrl: App, private auth: AuthService) {
 
@@ -40,11 +40,11 @@ export class HomePage {
     });
   }
 
-  /*slideNext(){
+  slideNext(){
     this.slides.slideNext();
   }
 
   slidePrev(){
     this.slides.slidePrev();
-  }*/
+  }
 }
