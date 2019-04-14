@@ -12,6 +12,18 @@
 </ion-header>
 
 <ion-content padding>
+  <!--
+    <ion-slides>
+    <ion-slide *ngFor="let image of imageContainer">
+      <img class="novidade" src="{{ image.url }}">
+        <h1> {{ image.name }} </h1>
+      </ion-slide>
+  </ion-slides>
+
+  <div class="swiper-button-next" (click)="slideNext()"></div>
+  <div class="swiper-button-prev" (click)="slidePrev()"></div>
+  -->
+
   <button ion-button color="secondary" round class="full" (click)="loginClick()">Login</button>
   <button ion-button color="secondary" round class="full" (click)="signClick()">Cadastro</button>
 </ion-content>
