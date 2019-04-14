@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, App } from 'ionic-angular';
 
 import { AuthService } from '../../providers/auth-service/auth-service';
+import { LoginPage } from '../login/login';
  
 @Component({
   selector: 'page-home',
@@ -9,11 +10,8 @@ import { AuthService } from '../../providers/auth-service/auth-service';
 })
 export class HomePage {
 
-  constructor(private navCtrl: NavController, private auth: AuthService) {
+  constructor(private navCtrl: NavController, public appCtrl: App, private auth: AuthService) {
 
-  }
-  categoriaClick(){
-    this.navCtrl.push('CategoriasPage');
   }
   loginClick(){
     this.navCtrl.push('LoginPage');
@@ -21,13 +19,10 @@ export class HomePage {
   signClick(){
     this.navCtrl.push('SignPage');
   }
-  perfilClick(){
-    this.navCtrl.push('PerfilPage');
-  }
 
   public logout() {
     this.auth.logout().subscribe(succ => {
-      this.navCtrl.setRoot('LoginPage')
+      this.appCtrl.getRootNav().setRoot(LoginPage)
     });
   }
 }

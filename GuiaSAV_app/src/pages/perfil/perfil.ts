@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 
 import { AuthService } from '../../providers/auth-service/auth-service';
 import { LoginPage } from '../login/login';
@@ -16,7 +16,7 @@ export class PerfilPage {
   email = '';
   senha = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthService) {
+  constructor(public navCtrl: NavController, public appCtrl: App, public navParams: NavParams, public auth: AuthService) {
     let user = this.auth.getUserInfo();
     this.nome = user.nome;
     this.login = user.login;
@@ -31,7 +31,7 @@ export class PerfilPage {
   
   public logout() {
     this.auth.logout().subscribe(succ => {
-      this.navCtrl.setRoot(LoginPage)
+      this.appCtrl.getRootNav().setRoot(LoginPage)
     });
   }
 

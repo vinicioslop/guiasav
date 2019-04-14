@@ -1,25 +1,73 @@
 <ion-header>
-    <ion-navbar>
+  <ion-navbar>
       <ion-title>
-        <ion-title>
           Perfil
-        </ion-title>
       </ion-title>
-      <ion-buttons end>
-        <button ion-button (click)="logout()">
-          <ion-icon name="log-out"></ion-icon>
-        </button>
-      </ion-buttons>
-    </ion-navbar>
-  </ion-header>
+    <ion-buttons end>
+      <button ion-button (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
 
-  <ion-content padding>
-    <ion-list>
-        <ion-item>
-          <h3>{{nome}}</h3>
-          <p>Nome de usuário: {{login}}</p>
-          <p>E-mail: {{email}}</p>
-          <p>Senha: {{senha}}</p>
-        </ion-item>
-      </ion-list>
-    </ion-content>
+<ion-content padding>
+  <ion-list>
+    <ion-item-sliding>
+      <ion-item color="none">
+        <ion-avatar item-left>
+          <img src="../../assets/img/md-contact.svg"/>
+        </ion-avatar>
+        <h2>
+          {{nome}}
+        </h2>
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button color="positive"></button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-list>
+    <ion-item color="none" id="perfil-list-item6">
+      E-mail: {{email}}
+    </ion-item>
+    <ion-item color="none" id="perfil-list-item7">
+      Login: {{login}}
+    </ion-item>
+    <button id="perfil-button4" ion-button color="positive" block>
+      Editar Dados Pessoais
+    </button>
+  </ion-list>
+
+  <ion-list>
+    <ion-item color="none" id="perfil-list-item12">
+      <ion-icon name="lock" item-left></ion-icon>
+        Senha
+    </ion-item>
+    <ion-item color="none" id="perfil-list-item25">
+      Atualizar senha
+    </ion-item>
+    <ion-item color="none" id="perfil-list-item26">
+      Esqueci minha senha
+    </ion-item>
+  </ion-list>
+    
+  <ion-list>
+    <ion-item color="none" id="perfil-list-item10">
+      <ion-icon name="settings" item-left></ion-icon>
+        Aplicativo
+      </ion-item>
+    <form id="perfil-form1">
+      <ion-item id="perfil-toggle1">
+        <ion-label>
+          Modo Escuro
+        </ion-label>
+        <ion-toggle color="dark" checked="true"></ion-toggle>
+      </ion-item>
+    </form>
+    <button ion-button outline color="assertive" (click)="logout()" block icon-right>
+      Desconectar
+    </button>
+  </ion-list>
+</ion-content>
