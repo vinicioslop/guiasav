@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+
+import { AuthService } from '../../providers/auth-service/auth-service';
+import { LoginPage } from '../login/login';
 
 import { AbreviacaoCatPage } from './abreviacao-cat/abreviacao-cat';
 import { AnatomiaCatPage } from './anatomia-cat/anatomia-cat';
@@ -20,8 +23,12 @@ import { VerificacaoSinalVitalCatPage } from './verificacao-sinal-vital-cat/veri
 })
 export class CategoriasPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public navCtrl: NavController, 
+    public appCtrl: App, 
+    public navParams: NavParams,
+    public auth: AuthService
+    ){}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CategoriasPage');
@@ -59,5 +66,11 @@ export class CategoriasPage {
   }
   verificacaoClick(){
     this.navCtrl.push(VerificacaoSinalVitalCatPage);
+  }
+
+  public logout() {
+    this.auth.logout().subscribe(succ => {
+      this.appCtrl.getRootNav().setRoot(LoginPage)
+    });
   }
 }
