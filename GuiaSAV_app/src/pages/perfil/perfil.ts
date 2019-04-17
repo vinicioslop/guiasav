@@ -16,17 +16,30 @@ export class PerfilPage {
   email = '';
   senha = '';
 
-  constructor(public navCtrl: NavController, public appCtrl: App, public navParams: NavParams, public auth: AuthService) {
-    let user = this.auth.getUserInfo();
-    this.nome = user.nome;
-    this.login = user.login;
-    this.email = user.email;
-    this.senha = user.senha;
+  constructor(
+    public navCtrl: NavController, 
+    public appCtrl: App, 
+    public navParams: NavParams, 
+    public auth: AuthService
+    ) {
+      let user = this.auth.getUserInfo();
+      this.nome = user.nome;
+      this.login = user.login;
+      this.email = user.email;
+      this.senha = user.senha;
     
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PerfilPage');
+  }
+
+  atualizaSenha(){
+    console.log("A implementar");
+  }
+
+  esqueciSenha(){
+    console.log("A implementar");
   }
   
   public logout() {

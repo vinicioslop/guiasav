@@ -10,15 +10,12 @@
 </ion-header>
 
 <ion-content>
-  <button ion-button color="secondary" round class="full" (click)="abreviacaoClick()">Abreviação</button>
-  <button ion-button color="secondary" round class="full" (click)="anatomiaClick()">Anatomia</button>
-  <button ion-button color="secondary" round class="full" (click)="contencaoClick()">Contenção Física</button>
-  <button ion-button color="secondary" round class="full" (click)="dicionarioClick()">Dicionário</button>
-  <button ion-button color="secondary" round class="full" (click)="equipamentoClick()">Equipamento</button>
-  <button ion-button color="secondary" round class="full" (click)="exameClick()">Exame Físico Geral</button>
-  <button ion-button color="secondary" round class="full" (click)="farmacologiaClick()">Farmacologia</button>
-  <button ion-button color="secondary" round class="full" (click)="formulaClick()">Fórmula</button>
-  <button ion-button color="secondary" round class="full" (click)="instrumentoClick()">Instrumento Cirúrgico</button>
-  <button ion-button color="secondary" round class="full" (click)="precaucaoClick()">Precaução Padrão</button>
-  <button ion-button color="secondary" round class="full" (click)="verificacaoClick()">Verificação Sinal Vital</button>
+  <ion-item *ngFor="let c of categorias">
+    <button ion-button color="secondary" round class="full" (click)="topicoClick()">{{c.nm_category}}</button>
+  </ion-item>
+
+  <button ion-button color="secondary" round class="full" (click)="topicoClick()">Nome do topico</button>
+  <button ion-button color="secondary" round class="full" (click)="topicoClick()">Nome do topico</button>
+  <button ion-button color="secondary" round class="full" (click)="topicoClick()">Nome do topico</button>
+  <button ion-button color="secondary" round class="full" (click)="topicoClick()">Nome do topico</button>
 </ion-content>

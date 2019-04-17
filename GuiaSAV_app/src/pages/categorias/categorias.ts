@@ -3,18 +3,8 @@ import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 
 import { AuthService } from '../../providers/auth-service/auth-service';
 import { LoginPage } from '../login/login';
-
-import { AbreviacaoCatPage } from './abreviacao-cat/abreviacao-cat';
-import { AnatomiaCatPage } from './anatomia-cat/anatomia-cat';
-import { ContencaoFisicaCatPage } from './contencao-fisica-cat/contencao-fisica-cat';
-import { DicionarioTermoCatPage } from './dicionario-termo-cat/dicionario-termo-cat';
-import { EquipamentoMonitorizacaoCatPage } from './equipamento-monitorizacao-cat/equipamento-monitorizacao-cat';
-import { ExameFisicoGeralCatPage } from './exame-fisico-geral-cat/exame-fisico-geral-cat';
-import { FarmacologiaCatPage } from './farmacologia-cat/farmacologia-cat';
-import { FormulaCatPage } from './formula-cat/formula-cat';
-import { InstrumentoCirurgicoCatPage } from './instrumento-cirurgico-cat/instrumento-cirurgico-cat';
-import { PrecaucaoPadraoCatPage } from './precaucao-padrao-cat/precaucao-padrao-cat';
-import { VerificacaoSinalVitalCatPage } from './verificacao-sinal-vital-cat/verificacao-sinal-vital-cat';
+import { TopicoPage } from './topico/topico';
+import { ApiProvider } from '../../providers/api/api';
 
 @IonicPage()
 @Component({
@@ -23,49 +13,18 @@ import { VerificacaoSinalVitalCatPage } from './verificacao-sinal-vital-cat/veri
 })
 export class CategoriasPage {
 
+  categorias: string[];
+
   constructor(
     public navCtrl: NavController, 
     public appCtrl: App, 
     public navParams: NavParams,
-    public auth: AuthService
+    public auth: AuthService,
+    private api: ApiProvider
     ){}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CategoriasPage');
-  }
-
-  abreviacaoClick(){
-    this.navCtrl.push(AbreviacaoCatPage);
-  }
-  anatomiaClick(){
-    this.navCtrl.push(AnatomiaCatPage);
-  }
-  contencaoClick(){
-    this.navCtrl.push(ContencaoFisicaCatPage);
-  }
-  dicionarioClick(){
-    this.navCtrl.push(DicionarioTermoCatPage);
-  }
-  equipamentoClick(){
-    this.navCtrl.push(EquipamentoMonitorizacaoCatPage);
-  }
-  exameClick(){
-    this.navCtrl.push(ExameFisicoGeralCatPage);
-  }
-  farmacologiaClick(){
-    this.navCtrl.push(FarmacologiaCatPage);
-  }
-  formulaClick(){
-    this.navCtrl.push(FormulaCatPage);
-  }
-  instrumentoClick(){
-    this.navCtrl.push(InstrumentoCirurgicoCatPage);
-  }
-  precaucaoClick(){
-    this.navCtrl.push(PrecaucaoPadraoCatPage);
-  }
-  verificacaoClick(){
-    this.navCtrl.push(VerificacaoSinalVitalCatPage);
+    this.listaCategorias();
   }
 
   public logout() {
@@ -73,4 +32,15 @@ export class CategoriasPage {
       this.appCtrl.getRootNav().setRoot(LoginPage)
     });
   }
+
+  listaCategorias() {
+    this.api.listaCategorias()
+       .subscribe(
+         categorias => this.categorias = categorias);
+  }
+
+  topicoClick(){
+    this.navCtrl.push(TopicoPage);
+  }
+
 }
