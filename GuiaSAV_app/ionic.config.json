@@ -3,6 +3,12 @@
   "integrations": {
     "cordova": {}
   },
+  "app_id": "",
   "type": "ionic-angular",
-  "app_id": ""
+  "proxies": [
+    {
+      "path": "/ws",
+      "proxyUrl": "http://guiasav.diforg.com.br/ws"
+    }
+  ]
 }
