@@ -27,12 +27,4 @@ export class ApiProvider {
                     });              
   }
 
-  listaConteudo(id: number) {
-    this.id = id;
-    return this.http.get(this.apiSAV + '/lista_topico/' + id)
-                    .map((data) => {
-                      return data.json();
-                    });              
-  }
-
 }
