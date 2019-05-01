@@ -10,5 +10,11 @@ import { ConteudoPage } from './conteudo';
   imports: [
     IonicPageModule.forChild(ConteudoPage),
   ],
+  entryComponents: [
+    ConteudoPage
+  ],
+  exports: [
+    ConteudoPage
+  ]
 })
 export class ConteudoPageModule {}

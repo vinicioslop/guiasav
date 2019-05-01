@@ -13,7 +13,8 @@ import { ApiProvider } from '../../providers/api/api';
 })
 export class CategoriasPage {
 
-  categorias: string[];
+  categorias: any[];
+  id: number;
 
   constructor(
     public navCtrl: NavController, 
@@ -35,12 +36,15 @@ export class CategoriasPage {
 
   listaCategorias() {
     this.api.listaCategorias()
-       .subscribe(
-         categorias => this.categorias = categorias);
+      .subscribe(
+        categorias => this.categorias = categorias);
   }
 
-  topicoClick(){
-    this.navCtrl.push(TopicoPage);
+  topicoClick(id: number){
+    this.id = id;
+    this.navCtrl.push(TopicoPage, {
+      id: id
+    });
   }
 
 }

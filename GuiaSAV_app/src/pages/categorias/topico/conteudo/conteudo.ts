@@ -10,14 +10,23 @@ import { ApiProvider } from '../../../../providers/api/api';
 })
 export class ConteudoPage {
 
-  constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams,
-    private api: ApiProvider
-    ) {}
+  id_conteudo: number;
+  nome_conteudo: string;
+  txt_conteudo: string;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ConteudoPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams, private api: ApiProvider) {
+    let id = navParams.get('id');
+    let nome = navParams.get('nome');
+    let conteudo = navParams.get('conteudo');
+    this.save(id, nome, conteudo);
+  }
+
+  ionViewDidLoad() {}
+
+  save(id: number, nome: string, conteudo: string){
+    this.id_conteudo = id;
+    this.nome_conteudo = nome;
+    this.txt_conteudo = conteudo;
   }
 
 }

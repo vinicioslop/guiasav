@@ -1,14 +1,12 @@
 {
   "name": "GuiaSAV_app",
-  "integrations": {
-    "cordova": {}
-  },
   "app_id": "",
   "type": "ionic-angular",
-  "proxies": [
-    {
-      "path": "/ws",
-      "proxyUrl": "http://guiasav.diforg.com.br/ws"
-    }
-  ]
+  "proxies": [{
+    "path": "/ws",
+    "proxyUrl": "http://guiasav.diforg.com.br/ws"
+}],
+  "integrations": {
+    "cordova": {}
+  }
 }
