@@ -9,12 +9,12 @@
 <ion-content padding>
 
   <ion-card>
-      <ion-card-header>
-        {{nome_conteudo}}
-      </ion-card-header>
-      <ion-card-content>
-        {{txt_conteudo}}
-      </ion-card-content>
-    </ion-card>
+    <ion-card-header>
+      {{nome_conteudo}}
+    </ion-card-header>
+    <ion-card-content>
+        <div [innerHTML]="txt_conteudo"></div>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>

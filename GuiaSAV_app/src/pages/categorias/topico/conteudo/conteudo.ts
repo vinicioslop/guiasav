@@ -14,15 +14,14 @@ export class ConteudoPage {
 
   constructor(
     public navCtrl: NavController, 
-    public navParams: NavParams)
+    public navParams: NavParams
+    )
     {
       let id = navParams.get('id');
       let nome = navParams.get('nome');
       let conteudo = navParams.get('conteudo');
       this.save(id, nome, conteudo);
   }
-
-  ionViewDidLoad() {}
 
   save(id: number, nome: string, conteudo: string){
     this.id_conteudo = id;
