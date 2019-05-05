@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Loading, LoadingController } from 'ionic-angular';
 
 import { ApiProvider } from '../../../providers/api/api';
 
@@ -10,12 +10,19 @@ import { ApiProvider } from '../../../providers/api/api';
 })
 export class TopicoPage {
 
+  loading: Loading;
+
   topicos: string[];
   id_categoria: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private api: ApiProvider) {
-    let id_categoria = navParams.get('id');
-    this.saveId(id_categoria);
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private loadingCtrl: LoadingController,
+    private api: ApiProvider) 
+    {
+      let id_categoria = navParams.get('id');
+      this.saveId(id_categoria);
   }
 
   ionViewDidLoad() {
@@ -26,10 +33,19 @@ export class TopicoPage {
     this.id_categoria = id;
   }
 
-  listaTopicos() { 
+  listaTopicos() {
+    this.showLoading()
     this.api.listaTopicos(this.id_categoria)
        .subscribe(
          topicos => this.topicos = topicos);
+  }
+
+  showLoading() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Por favor espere...',
+      duration: 700
+    });
+    this.loading.present();
   }
 
   conteudoClick(id_cont: number, nm_cont: string, ds_cont: string){

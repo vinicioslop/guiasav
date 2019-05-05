@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, LoadingController, Loading } from 'ionic-angular';
 
 import { AuthService } from '../../providers/auth-service/auth-service';
 import { LoginPage } from '../login/login';
@@ -13,6 +13,8 @@ import { ApiProvider } from '../../providers/api/api';
 })
 export class CategoriasPage {
 
+  loading: Loading;
+
   categorias: any[];
   id: number;
 
@@ -20,6 +22,7 @@ export class CategoriasPage {
     public navCtrl: NavController, 
     public appCtrl: App, 
     public navParams: NavParams,
+    private loadingCtrl: LoadingController,
     public auth: AuthService,
     private api: ApiProvider
     ){}
@@ -35,9 +38,18 @@ export class CategoriasPage {
   }
 
   listaCategorias() {
+    this.showLoading()
     this.api.listaCategorias()
       .subscribe(
         categorias => this.categorias = categorias);
+  }
+
+  showLoading() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Por favor espere...',
+      duration: 700
+    });
+    this.loading.present();
   }
 
   topicoClick(id: number){

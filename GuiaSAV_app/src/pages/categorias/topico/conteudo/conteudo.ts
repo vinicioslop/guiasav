@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { ApiProvider } from '../../../../providers/api/api';
-
 @IonicPage()
 @Component({
   selector: 'page-conteudo',
@@ -14,11 +12,14 @@ export class ConteudoPage {
   nome_conteudo: string;
   txt_conteudo: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private api: ApiProvider) {
-    let id = navParams.get('id');
-    let nome = navParams.get('nome');
-    let conteudo = navParams.get('conteudo');
-    this.save(id, nome, conteudo);
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams)
+    {
+      let id = navParams.get('id');
+      let nome = navParams.get('nome');
+      let conteudo = navParams.get('conteudo');
+      this.save(id, nome, conteudo);
   }
 
   ionViewDidLoad() {}
