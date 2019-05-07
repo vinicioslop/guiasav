@@ -16,6 +16,7 @@ import { SignPageModule } from '../pages/sign/sign.module';
 import { PerfilPageModule } from '../pages/perfil/perfil.module';
 
 import { CategoriasPageModule } from '../pages/categorias/categorias.module';
+import { ForumPageModule } from '../pages/forum/forum.module';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { CategoriasPageModule } from '../pages/categorias/categorias.module';
     LoginPageModule,
     SignPageModule,
     PerfilPageModule,
+    ForumPageModule,
 
     IonicModule.forRoot(MyApp),
     HttpModule

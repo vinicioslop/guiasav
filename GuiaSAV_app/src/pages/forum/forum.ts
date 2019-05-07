@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 
-import { ConteudoPage } from '../../categorias/topico/conteudo/conteudo';
-import { AuthService } from '../../../providers/auth-service/auth-service';
-import { LoginPage } from '../../login/login';
+import { AuthService } from '../../providers/auth-service/auth-service';
+import { LoginPage } from '../login/login';
 
 @IonicPage()
 @Component({
-  selector: 'page-favoritos',
-  templateUrl: 'favoritos.html'
+  selector: 'page-forum',
+  templateUrl: 'forum.html',
 })
-export class FavoritosPage {
+export class ForumPage {
 
   constructor(
     public navCtrl: NavController,
@@ -18,9 +17,9 @@ export class FavoritosPage {
     public navParams: NavParams,
     public auth: AuthService
     ) {}
-  
-  goToConteudoPage(){
-    this.navCtrl.push(ConteudoPage);
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ForumPage');
   }
 
   public logout() {
@@ -28,4 +27,5 @@ export class FavoritosPage {
       this.appCtrl.getRootNav().setRoot(LoginPage)
     });
   }
+
 }

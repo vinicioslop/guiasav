@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { NavController, NavParams, App } from 'ionic-angular';
 
 import { AuthService } from '../../providers/auth-service/auth-service';
 import { LoginPage } from '../login/login';
 
-@IonicPage()
 @Component({
   selector: 'page-perfil',
   templateUrl: 'perfil.html',
@@ -17,31 +16,32 @@ export class PerfilPage {
   senha = '';
 
   constructor(
-    public navCtrl: NavController, 
-    public appCtrl: App, 
-    public navParams: NavParams, 
+    public navCtrl: NavController,
+    public appCtrl: App,
+    public navParams: NavParams,
     public auth: AuthService
-    ) {
-      let user = this.auth.getUserInfo();
-      this.nome = user.nome;
-      this.login = user.login;
-      this.email = user.email;
-      this.senha = user.senha;
-    
+  ) {
+
+    let user = this.auth.getUserInfo();
+    this.nome = user.nome;
+    this.login = user.login;
+    this.email = user.email;
+    this.senha = user.senha;
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PerfilPage');
   }
 
-  atualizaSenha(){
+  atualizaSenha() {
     console.log("A implementar");
   }
 
-  esqueciSenha(){
+  esqueciSenha() {
     console.log("A implementar");
   }
-  
+
   public logout() {
     this.auth.logout().subscribe(succ => {
       this.appCtrl.getRootNav().setRoot(LoginPage)
