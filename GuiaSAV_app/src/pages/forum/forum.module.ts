@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
+
 import { ForumPage } from './forum';
 
 @NgModule({
@@ -9,5 +10,8 @@ import { ForumPage } from './forum';
   imports: [
     IonicPageModule.forChild(ForumPage),
   ],
+  exports: [
+    ForumPage,
+  ]
 })
 export class ForumPageModule {}

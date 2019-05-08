@@ -18,8 +18,18 @@ export class ForumPage {
     public auth: AuthService
     ) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ForumPage');
+  ionViewDidLoad() { }
+
+  forumCat(){
+    this.navCtrl.push('ForumCategoriaPage');
+  }
+
+  forumLts(){
+    this.navCtrl.push('ForumRecentePage');
+  }
+
+  forumMc(){
+    this.navCtrl.push('ForumMaisComentadoPage');
   }
 
   public logout() {
