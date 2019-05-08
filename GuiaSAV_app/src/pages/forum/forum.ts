@@ -32,6 +32,10 @@ export class ForumPage {
     this.navCtrl.push('ForumMaisComentadoPage');
   }
 
+  novaDiscussao(){
+    this.navCtrl.push('NovaDiscussaoPage');
+  }
+
   public logout() {
     this.auth.logout().subscribe(succ => {
       this.appCtrl.getRootNav().setRoot(LoginPage)
