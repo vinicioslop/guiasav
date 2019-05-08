@@ -10,7 +10,20 @@
 </ion-header>
 
 <ion-content>
+  <!--
   <ion-item *ngFor="let c of categorias">
     <button ion-button color="secondary" round class="full" (click)="topicoClick(c.cd_category)">{{c.nm_category}}</button>
   </ion-item>
+  -->
+
+  <ion-list *ngFor="let c of categorias">
+
+    <ion-card ion-item color="secondary" (click)="topicoClick(c.cd_category, c.nm_category)">
+      <ion-card-content>
+          {{c.nm_category}}
+      </ion-card-content>
+    </ion-card>
+
+  </ion-list>
+
 </ion-content>

@@ -1,15 +1,27 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Nome do Tópico</ion-title>
+    <ion-title>{{nm_categoria}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
+  <!--
   <ion-list>
     <ion-item *ngFor="let t of topicos">
       <button ion-button color="secondary" round class="full" (click)="conteudoClick(t.cd_topic, t.nm_topic, t.nm_content)">{{t.nm_topic}}</button>
     </ion-item>
+  </ion-list>
+  -->
+
+  <ion-list *ngFor="let t of topicos">
+
+    <ion-card ion-item color="secondary" (click)="conteudoClick(t.cd_topic, t.nm_topic, t.nm_content)">
+      <ion-card-content>
+        {{t.nm_topic}}
+      </ion-card-content>
+    </ion-card>
+
   </ion-list>
 
 </ion-content>

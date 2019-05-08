@@ -14,6 +14,7 @@ export class TopicoPage {
 
   topicos: string[];
   id_categoria: number;
+  nm_categoria: string;
 
   constructor(
     public navCtrl: NavController, 
@@ -22,15 +23,17 @@ export class TopicoPage {
     private api: ApiProvider) 
     {
       let id_categoria = navParams.get('id');
-      this.saveId(id_categoria);
+      let nm_categoria = navParams.get('nome');
+      this.save(id_categoria, nm_categoria);
   }
 
   ionViewDidLoad() {
     this.listaTopicos();
   }
 
-  saveId(id: number){
+  save(id: number, nome: string){
     this.id_categoria = id;
+    this.nm_categoria = nome;
   }
 
   listaTopicos() {

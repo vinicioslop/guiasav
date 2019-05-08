@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Exemplo Conteúdo
+      {{nome_conteudo}}
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -9,9 +9,7 @@
 <ion-content padding>
 
   <ion-card>
-    <ion-card-header>
-      {{nome_conteudo}}
-    </ion-card-header>
+    <ion-card-header></ion-card-header>
     <ion-card-content>
         <div [innerHTML]="txt_conteudo"></div>
     </ion-card-content>

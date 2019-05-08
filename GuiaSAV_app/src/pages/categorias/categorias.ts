@@ -17,6 +17,7 @@ export class CategoriasPage {
 
   categorias: any[];
   id: number;
+  nm_categoria: string;
 
   constructor(
     public navCtrl: NavController, 
@@ -52,10 +53,12 @@ export class CategoriasPage {
     this.loading.present();
   }
 
-  topicoClick(id: number){
+  topicoClick(id: number, nome: string){
     this.id = id;
+    this.nm_categoria = nome;
     this.navCtrl.push(TopicoPage, {
-      id: id
+      id: id,
+      nome: nome
     });
   }
 
