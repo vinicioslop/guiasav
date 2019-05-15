@@ -19,7 +19,7 @@ export class User {
  
 @Injectable()
 export class AuthService {
-  private API_URL = '';
+  private API_URL = 'https:';
 
   currentUser: User;
   public http: Http;
