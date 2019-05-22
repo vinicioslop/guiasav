@@ -8,9 +8,7 @@ export class ApiProvider {
 
   private apiSAV = 'http://guiasav.diforg.com.br/ws'
 
-  constructor(public http: Http) {
-    console.log('Hello ApiProvider Provider');
-  }
+  constructor(public http: Http) {}
 
   listaCategorias() {
     return this.http.get(this.apiSAV + '/lista_categoria')

@@ -20,13 +20,13 @@ export class CategoriasPage {
   nm_categoria: string;
 
   constructor(
-    public navCtrl: NavController, 
-    public appCtrl: App, 
+    public navCtrl: NavController,
+    public appCtrl: App,
     public navParams: NavParams,
     private loadingCtrl: LoadingController,
     public auth: AuthService,
     private api: ApiProvider
-    ){}
+  ) { }
 
   ionViewDidLoad() {
     this.listaCategorias();
@@ -40,20 +40,22 @@ export class CategoriasPage {
 
   listaCategorias() {
     this.showLoading()
-    this.api.listaCategorias()
-      .subscribe(
-        categorias => this.categorias = categorias);
   }
 
   showLoading() {
     this.loading = this.loadingCtrl.create({
       content: 'Por favor espere...',
-      duration: 700
+      duration: 800
     });
-    this.loading.present();
+    this.loading.present().then(() => {
+      this.api.listaCategorias()
+        .subscribe(
+          categorias => this.categorias = categorias);
+      () => this.loading.dismiss();
+    });
   }
 
-  topicoClick(id: number, nome: string){
+  topicoClick(id: number, nome: string) {
     this.id = id;
     this.nm_categoria = nome;
     this.navCtrl.push(TopicoPage, {

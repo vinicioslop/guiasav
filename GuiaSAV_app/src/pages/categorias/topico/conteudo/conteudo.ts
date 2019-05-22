@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, Loading, IonicPage } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -8,13 +8,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ConteudoPage {
 
+  loading: Loading;
+
+  semDado: boolean;
+  mensagem: string;
+
   id_conteudo: number;
   nome_conteudo: string;
   txt_conteudo: string;
 
   constructor(
     public navCtrl: NavController, 
-    public navParams: NavParams
+    public navParams: NavParams,
+    private loadingCtrl: LoadingController
     )
     {
       let id = navParams.get('id');
@@ -27,6 +33,23 @@ export class ConteudoPage {
     this.id_conteudo = id;
     this.nome_conteudo = nome;
     this.txt_conteudo = conteudo;
+
+    if(this.txt_conteudo == null){
+      this.semDado = true;
+      this.mensagem = 'Conteúdo não publicado'
+    }
+  }
+
+  ionViewDidLoad(){
+    this.showLoading();
+  }
+
+  showLoading() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Por favor espere...',
+      dismissOnPageChange: true
+    });
+    this.loading.present();
   }
 
 }

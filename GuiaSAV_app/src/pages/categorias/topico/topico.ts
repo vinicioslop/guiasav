@@ -38,17 +38,19 @@ export class TopicoPage {
 
   listaTopicos() {
     this.showLoading()
-    this.api.listaTopicos(this.id_categoria)
-       .subscribe(
-         topicos => this.topicos = topicos);
   }
 
   showLoading() {
     this.loading = this.loadingCtrl.create({
       content: 'Por favor espere...',
-      duration: 700
+      duration: 800
     });
-    this.loading.present();
+    this.loading.present().then(() => {
+      this.api.listaTopicos(this.id_categoria)
+       .subscribe(
+         topicos => this.topicos = topicos);
+      () => this.loading.dismiss();
+    });
   }
 
   conteudoClick(id_cont: number, nm_cont: string, ds_cont: string){

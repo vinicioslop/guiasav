@@ -9,9 +9,15 @@
 <ion-content padding>
 
   <ion-card>
-    <ion-card-header></ion-card-header>
     <ion-card-content>
+
+      <ion-list *ngIf="semDado != true">
         <div [innerHTML]="txt_conteudo"></div>
+      </ion-list>
+
+      <ion-item>
+        {{mensagem}}
+      </ion-item>
     </ion-card-content>
   </ion-card>
 
