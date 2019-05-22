@@ -30,9 +30,7 @@ export class PerfilPage {
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PerfilPage');
-  }
+  ionViewDidLoad() {}
 
   atualizaSenha() {
     console.log("A implementar");
