@@ -10,7 +10,7 @@ export class ConteudoPage {
 
   loading: Loading;
 
-  semDado: boolean;
+  haveData: boolean;
   mensagem: string;
 
   id_conteudo: number;
@@ -18,29 +18,29 @@ export class ConteudoPage {
   txt_conteudo: string;
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     private loadingCtrl: LoadingController
-    )
-    {
-      let id = navParams.get('id');
-      let nome = navParams.get('nome');
-      let conteudo = navParams.get('conteudo');
-      this.save(id, nome, conteudo);
+  ) {
+    let id = navParams.get('id');
+    let nome = navParams.get('nome');
+    let conteudo = navParams.get('conteudo');
+    this.save(id, nome, conteudo);
   }
 
-  save(id: number, nome: string, conteudo: string){
+  save(id: number, nome: string, conteudo: string) {
     this.id_conteudo = id;
     this.nome_conteudo = nome;
     this.txt_conteudo = conteudo;
+    this.haveData = true;
 
-    if(this.txt_conteudo == null){
-      this.semDado = true;
-      this.mensagem = 'Conteúdo não publicado'
+    if (this.txt_conteudo == null) {
+      this.haveData = false;
+      this.mensagem = 'Conteúdo não publicado';
     }
   }
 
-  ionViewDidLoad(){
+  ionViewDidLoad() {
     this.showLoading();
   }
 

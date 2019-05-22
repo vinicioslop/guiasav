@@ -11,13 +11,16 @@
   <ion-card>
     <ion-card-content>
 
-      <ion-list *ngIf="semDado != true">
+      <ion-list *ngIf="haveData == true">
         <div [innerHTML]="txt_conteudo"></div>
       </ion-list>
 
-      <ion-item>
-        {{mensagem}}
-      </ion-item>
+      <ion-list *ngIf="haveData == false">
+        <ion-item>
+          {{mensagem}}
+        </ion-item>
+      </ion-list>
+
     </ion-card-content>
   </ion-card>
 

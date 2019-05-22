@@ -4,8 +4,6 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ApiProvider {
 
-  id: number;
-
   private apiSAV = 'http://guiasav.diforg.com.br/ws'
 
   constructor(public http: Http) {}
@@ -18,7 +16,6 @@ export class ApiProvider {
   }
 
   listaTopicos(id: number) {
-    this.id = id;
     return this.http.get(this.apiSAV + '/lista_topico/' + id)
                     .map((data) => {
                       return data.json();
