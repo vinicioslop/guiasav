@@ -45,7 +45,7 @@ export class CategoriasPage {
   showLoading() {
     this.loading = this.loadingCtrl.create({
       content: 'Por favor espere...',
-      duration: 800
+      duration: 900
     });
     this.loading.present().then(() => {
       this.api.listaCategorias()
