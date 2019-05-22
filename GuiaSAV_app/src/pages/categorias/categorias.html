@@ -17,7 +17,7 @@
   -->
 
   <ion-list *ngFor="let c of categorias">
-
+  <!--USAR O BOTÃO AO INVES DE CARD-->
     <ion-card ion-item color="secondary" (click)="topicoClick(c.cd_category, c.nm_category)">
       <ion-card-content>
           {{c.nm_category}}
