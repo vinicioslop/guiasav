@@ -6,4 +6,17 @@
 
 <ion-content padding>
 
+  <ion-list *ngFor="let c of categorias">
+    <ion-list-header>
+      {{c.nm_forum}}
+    </ion-list-header>
+
+    <ion-item *ngFor="let a of assuntos" (click)="listaAssuntos(c.cd_forum)">
+      
+    </ion-item>
+
+    <p></p>
+
+  </ion-list>
+
 </ion-content>

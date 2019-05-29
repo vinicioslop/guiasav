@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, LoadingController, Loading } from 'ionic-angular';
+
+import { ApiProvider } from '../../../providers/api/api';
 
 @IonicPage()
 @Component({
@@ -7,10 +9,41 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'forum-categoria.html',
 })
 export class ForumCategoriaPage {
+  loading: Loading;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  categorias: any[];
+  id_cat: number;
+  assuntos: any[];
+
+  constructor(
+    public navCtrl: NavController,
+    public appCtrl: App,
+    public navParams: NavParams,
+    private loadingCtrl: LoadingController,
+    private api: ApiProvider) 
+    {
+
   }
 
-  ionViewDidLoad() { }
+  ionViewDidLoad() {
+    this.listaForumCat();
+  }
+
+  listaForumCat() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Por favor espere...',
+      duration: 900
+    });
+    this.loading.present().then(() => {
+      this.api.listaForumCat()
+        .subscribe(
+          categorias => this.categorias = categorias);
+      () => this.loading.dismiss();
+    });
+  }
+
+  listaAssuntos(id: number){
+    this.navCtrl.push('ListDiscussoesPage');
+  }
 
 }
