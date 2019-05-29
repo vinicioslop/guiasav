@@ -2,6 +2,16 @@ page-home {
     .novidade {
         width: 100%;
         left: 50%;
-        
     }
+    ion-col div {
+        
+        //border-top-left-radius: 100px;
+        //border-bottom-right-radius: 100px;
+        //border-radius:  50% 50% 50% 50% / 50% 50% 50% 50%; 
+        background-color: #0d6d1de3;
+        //border: 3px solid #00ff2a;
+        //border-radius: 5px;
+        padding: 30%;
+        text-align: center;
+      }
 }
