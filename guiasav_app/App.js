@@ -1,5 +1,12 @@
-import React, {Fragment} from 'react';
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow
+ */
 
+import React, {Fragment} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -33,7 +40,7 @@ const App = () => {
           )}
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step one</Text>
+              <Text style={styles.sectionTitle}>Step One - Tela</Text>
               <Text style={styles.sectionDescription}>
                 Edit <Text style={styles.highlight}>App.js</Text> to change this
                 screen and then come back to see your edits.
