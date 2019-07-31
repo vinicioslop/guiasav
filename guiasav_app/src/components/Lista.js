@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-import { View, StyleSheet, Button, FlatList, Text } from 'react-native';
+import { View, StyleSheet, Button, FlatList, Text, TouchableHighlight, ScrollView } from 'react-native';
+
+const uri = 'http://guiasav.diforg.com.br/ws';
 
 export default class Lista extends Component {
 
@@ -9,25 +11,28 @@ export default class Lista extends Component {
         this.state = {
             categorias: [],
             carregado: 'false',
-            topico: [],
+            topicos: [],
             topic: 'false'
         }
     }
 
     carregaDados() {
-
-        fetch('http://guiasav.diforg.com.br/ws/lista_categoria')
+        fetch(uri + '/lista_categoria')
             .then(resposta => resposta.json())
             .then(json => this.setState({ categorias: json, carregado: 'true' }));
     }
 
-    goToTopico() {
-        
+    listaTopico(id) {
+        fetch('http://guiasav.diforg.com.br/ws/lista_topico/' + id)
+        .then(resposta => resposta.json())
+        .then(json => this.setState({ topicos: json, topic: 'true' }));
     }
+
+
 
     render() {
         return (
-            <View style={styles.container}>
+            <View>
 
                 {
                     this.state.carregado === 'true' && this.state.topic === 'false' ? null :
@@ -40,24 +45,35 @@ export default class Lista extends Component {
                 }
 
                 {
-                    this.state.carregado === 'false' && this.state.topic === 'false' ? null :
+                    this.state.carregado === 'false' && this.state.topic === 'true' ? null :
                         <FlatList
                             data={this.state.categorias}
                             keyExtractor={item => item.cd_category}
                             renderItem={({ item }) =>
-                                <View>
-                                    <Button
-                                        onPress={this.goToTopico}
-                                        title={item.nm_category}
-                                        color={"#841584"}
-                                        accessibilityLabel={item.nm_category}
-                                    />
-                                    <Text>
-                                        {item.nm_category}
-                                    </Text>
-                                </View>
+                                <ScrollView>
+                                    <TouchableHighlight onPress={this.listaTopico(item.cd_category)} style={styles.categorias}>
+                                        <Text style={styles.categoriaItem}>{item.nm_category}</Text>
+                                    </TouchableHighlight>
+                                </ScrollView>
                             }
                         />
+                }
+
+                {
+                    /*
+                    this.state.topic === 'false' ? null :
+                    <FlatList
+                        data={this.state.topicos}
+                        keyExtractor={item => item.cd_topic}
+                        renderItem={({ item }) =>
+                            <ScrollView>
+                                <TouchableHighlight onPress={this.listaTopico(item.cd_category)} style={styles.categorias}>
+                                    <Text style={styles.categoriaItem}>{item.nm_topic}</Text>
+                                </TouchableHighlight>
+                            </ScrollView>
+                        }
+                    />
+                    */
                 }
 
             </View>
@@ -66,7 +82,12 @@ export default class Lista extends Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
+    categorias: {
+        alignItems: 'center'
+    },
+    categoriaItem: {
+        fontWeight: 'bold',
+        fontSize: 20,
         
     }
 });

@@ -8,10 +8,14 @@ export default class Inicio extends Component {
     render(){
         return(
             <View>
-                <View style={styles.header}>
-                    <Text style={styles.header_text}>Início</Text>
-                </View>
-                <View style={styles.body}>
+                
+                {/*
+                    <View style={styles.header}>
+                        <Text style={styles.header_text}>Início</Text>
+                    </View>
+                */}
+                
+                <View>
                     <Lista/>
                 </View>
             </View>

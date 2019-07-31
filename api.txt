@@ -1,0 +1,7 @@
+uri: http://guiasav,diforg.com.br/ws
+
+categorias: /lista_categoria
+
+topicos: /lista_topicos/ + id
+
+forum: /forum
