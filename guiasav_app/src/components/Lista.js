@@ -1,44 +1,65 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-import { View, FlatList, Text, StyleSheet, Button } from 'react-native';
+import { View, StyleSheet, Button, FlatList, Text } from 'react-native';
 
 export default class Lista extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             categorias: [],
-            msg: ''
+            carregado: 'false',
+            topico: [],
+            topic: 'false'
         }
     }
 
-    carregaDados(){
+    carregaDados() {
 
         fetch('http://guiasav.diforg.com.br/ws/lista_categoria')
             .then(resposta => resposta.json())
-            .then(json => this.setState({categorias: json}))
+            .then(json => this.setState({ categorias: json, carregado: 'true' }));
     }
-    render(){
-        return(
+
+    goToTopico() {
+        
+    }
+
+    render() {
+        return (
             <View style={styles.container}>
-                <Button
-                    onPress={this.carregaDados.bind(this)}
-                    title="Carregar Dados"
-                    color="#841584"
-                    accessibilityLabel="Learn more about this purple button"
-                />
-                <FlatList style={styles.lista}
-                    keyExtractor={item => item.cd_category}
-                    data={this.state.categorias}
-                    renderItem={ ({item}) =>
-                        <Button
-                            onPress={console.warn('Clique')}
-                            title={item.nm_category}
-                            color="#841584"
-                            accessibilityLabel="Learn more about this purple button"
+
+                {
+                    this.state.carregado === 'true' && this.state.topic === 'false' ? null :
+                    <Button
+                        onPress={this.carregaDados.bind(this)}
+                        title={"Carrega Dados"}
+                        color={"#841584"}
+                        accessibilityLabel={"Carregamento de Dados"}
+                    />
+                }
+
+                {
+                    this.state.carregado === 'false' && this.state.topic === 'false' ? null :
+                        <FlatList
+                            data={this.state.categorias}
+                            keyExtractor={item => item.cd_category}
+                            renderItem={({ item }) =>
+                                <View>
+                                    <Button
+                                        onPress={this.goToTopico}
+                                        title={item.nm_category}
+                                        color={"#841584"}
+                                        accessibilityLabel={item.nm_category}
+                                    />
+                                    <Text>
+                                        {item.nm_category}
+                                    </Text>
+                                </View>
+                            }
                         />
-                    }
-                />
+                }
+
             </View>
         );
     }
@@ -46,7 +67,6 @@ export default class Lista extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        alignItems: "center"
-    },
-    
+        
+    }
 });

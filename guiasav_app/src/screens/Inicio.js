@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 import Lista from '../components/Lista';
-
-const { width, height } = Dimensions.get('window');
 
 export default class Inicio extends Component {
     render(){
