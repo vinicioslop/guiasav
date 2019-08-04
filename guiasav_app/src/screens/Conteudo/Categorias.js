@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+// src/Categorias.js
+
+import React from 'react';
 
 import { View, Button, FlatList, ScrollView } from 'react-native';
 
 const uri = 'http://guiasav.diforg.com.br/ws';
 
-export default class Lista extends Component {
+export default class Categorias extends React.Component {
 
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             categorias: []
         }
@@ -19,23 +21,20 @@ export default class Lista extends Component {
             .then(json => this.setState({ categorias: json, carregado: 'true' }));
     }
 
-    listaTopico(id) {
-        fetch('http://guiasav.diforg.com.br/ws/lista_topico/' + id)
-            .then(resposta => resposta.json())
-            .then(json => this.setState({ topicos: json, topic: 'true' }));
+    goToTopics(id) {
+        
     }
 
     render() {
         return (
-            <View>
-
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <FlatList
                     data={this.state.categorias}
                     keyExtractor={item => item.cd_category}
                     renderItem={({ item }) =>
                         <ScrollView>
                             <Button
-                                onPress={this.listaTopico(item.cd_category)}
+                                onPress={this.goToTopics(item.cd_category)}
                                 title={item.nm_category}
                                 color={"#841584"}
                                 accessibilityLabel={item.nm_category}
@@ -43,9 +42,11 @@ export default class Lista extends Component {
                         </ScrollView>
                     }
                 />
-
             </View>
         );
     }
 }
 
+Categorias.navigationOptions = {
+    title: 'Categorias',
+}

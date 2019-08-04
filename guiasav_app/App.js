@@ -1,17 +1,24 @@
-import React, {Fragment} from 'react';
+// In App.js in a new project
 
-import { View } from 'react-native';
+import React from "react";
+import { View, Text } from "react-native";
+import { createStackNavigator, createAppContainer } from "react-navigation";
 
-import Inicio from './src/screens/Inicio';
-
-const App = () => {
-  return (
-    <Fragment>
-      <View>
-        <Inicio/>
+//Investigar Depois
+class HomeScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Text>Home Screen</Text>
       </View>
-    </Fragment>
-  );
-};
+    );
+  }
+}
 
-export default App;
+const AppNavigator = createStackNavigator({
+  Home: {
+    screen: HomeScreen
+  }
+});
+
+export default createAppContainer(AppNavigator);

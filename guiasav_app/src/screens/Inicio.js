@@ -1,41 +1,20 @@
-import React, {Component} from 'react';
+// src/Inicio.js
 
-import { View, Text, StyleSheet } from 'react-native';
+import React from 'react';
+import { View, Button, Text } from 'react-native';
 
-import Lista from '../components/Lista';
+const Inicio = ({ navigation }) => (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Home ;D</Text>
+        <Button
+            title="Ir para Categorias"
+            onPress={() => navigation.navigate('Categorias')}
+        />
+    </View>
+);
 
-export default class Inicio extends Component {
-    render(){
-        return(
-            <View>
-                
-                {/*
-                    <View style={styles.header}>
-                        <Text style={styles.header_text}>Início</Text>
-                    </View>
-                */}
-                
-                <View>
-                    <Lista/>
-                </View>
-            </View>
-        );
-    }
+Inicio.navigationOptions = {
+    title: 'Página Inicial'
 }
 
-const styles = StyleSheet.create({
-    header: {
-        backgroundColor: '#5D5D5D',
-        padding: 20,
-        borderStyle: "solid",
-        borderColor: '#000000',
-        borderWidth: 3
-    },
-    header_text: {
-        fontSize: 35,
-        textAlign: "center"
-    },
-    body: {
-        
-    }
-});
+export default Inicio;
