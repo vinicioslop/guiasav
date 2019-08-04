@@ -2,9 +2,9 @@
 
 import React from 'react';
 
-import { View, Button, FlatList, ScrollView } from 'react-native';
+import { View, Button, FlatList } from 'react-native';
 
-const uri = 'http://guiasav.diforg.com.br/ws';
+const uri = 'http://guiasav.diforg.com.br/ws/';
 
 export default class Categorias extends React.Component {
 
@@ -15,14 +15,14 @@ export default class Categorias extends React.Component {
         }
     }
 
-    componentDidMount(){
-        fetch(uri + '/lista_categoria')
+    componentDidMount() {
+        fetch(uri + 'lista_categoria')
             .then(resposta => resposta.json())
-            .then(json => this.setState({ categorias: json, carregado: 'true' }));
+            .then(json => this.setState({ categorias: json }));
     }
 
     goToTopics(id) {
-        
+        thiss.props.navigation.navigate('Topicos', {id: id});
     }
 
     render() {
@@ -31,15 +31,15 @@ export default class Categorias extends React.Component {
                 <FlatList
                     data={this.state.categorias}
                     keyExtractor={item => item.cd_category}
-                    renderItem={({ item }) =>
-                        <ScrollView>
+                    renderItem={({ item }) => 
+                        <View>
                             <Button
-                                onPress={this.goToTopics(item.cd_category)}
+                                onPress={() => this.goToTopics(item.cd_category)}
                                 title={item.nm_category}
                                 color={"#841584"}
                                 accessibilityLabel={item.nm_category}
                             />
-                        </ScrollView>
+                        </View>
                     }
                 />
             </View>
