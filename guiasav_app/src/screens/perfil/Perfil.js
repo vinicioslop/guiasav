@@ -7,7 +7,7 @@ export default class Perfil extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text>Perfil</Text>
+        <Text>Perfil</Text>
       </View>
     );
   }

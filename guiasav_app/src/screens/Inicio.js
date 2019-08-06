@@ -1,15 +1,11 @@
 // src/Inicio.js
 
 import React from 'react';
-import { View, Button, Text } from 'react-native';
+import { View, Text } from 'react-native';
 
 const Inicio = ({ navigation }) => (
   <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text>Home ;D</Text>
-    <Button 
-      title="Ir para Categorias"
-      onPress={() => navigation.navigate('Categorias') }
-    />
+    <Text>Home</Text>
   </View>
 );
 
