@@ -1,5 +1,3 @@
-// src/Topicos.js
-
 import React from 'react';
 
 import { View, Button, FlatList } from 'react-native';
@@ -15,29 +13,25 @@ export default class Topicos extends React.Component {
         }
     }
 
-    componentWillMount(){
+    componentWillMount() {
         const { navigation } = this.props;
 
         const id = navigation.getParam('id', 'no-id');
 
         this.carregaDados(id);
-
-        Topicos.navigationOptions = {
-            title: this.state.topicos.cd_topic
-        }
     }
 
-    carregaDados(id) {
+    carregaDados(id, nome) {
         fetch(uri + 'lista_topico/' + id)
             .then(resposta => resposta.json())
             .then(json => this.setState({ topicos: json }));
     }
 
-    goToConteudo(id) {
-        console.warn(id);
+    goToConteudo(item) {
+        this.props.navigation.navigate('Conteudo', { dados: item });
     }
 
-    render() {        
+    render() {
 
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -46,7 +40,7 @@ export default class Topicos extends React.Component {
                     keyExtractor={item => item.cd_topic}
                     renderItem={({ item }) =>
                         <Button
-                            onPress={() => this.goToConteudo(item.cd_topic)}
+                            onPress={() => this.goToConteudo(item)}
                             title={item.nm_topic}
                             color={"#841584"}
                             accessibilityLabel={item.nm_topic}
@@ -56,4 +50,8 @@ export default class Topicos extends React.Component {
             </View>
         );
     }
+}
+
+Topicos.navigationOptions = {
+    title: nome
 }
