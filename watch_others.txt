@@ -1,3 +1,5 @@
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
 yarn add react-native-navigation@latest
+
+npm i react-native-render-html
