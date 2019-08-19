@@ -21,7 +21,7 @@ export default class Topicos extends React.Component {
         this.carregaDados(id);
     }
 
-    carregaDados(id, nome) {
+    carregaDados(id) {
         fetch(uri + 'lista_topico/' + id)
             .then(resposta => resposta.json())
             .then(json => this.setState({ topicos: json }));
@@ -53,5 +53,5 @@ export default class Topicos extends React.Component {
 }
 
 Topicos.navigationOptions = {
-    title: nome
+    title: 'Tópicos'
 }

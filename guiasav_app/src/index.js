@@ -1,10 +1,13 @@
 // src/index.js
 
 import Inicio from './screens/Inicio';
-import Categorias from './screens/conteudo/Categorias';
 import Perfil from './screens/perfil/Perfil';
 
-import { createAppContainer, createBottomTabNavigator } from 'react-navigation';
+import Categorias from './screens/conteudo/Categorias';
+import Topicos from './screens/conteudo/Topicos';
+import Conteudo from './screens/conteudo/Conteudo';
+
+import { createAppContainer, createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 
 const Routes = createAppContainer(
   createBottomTabNavigator({
