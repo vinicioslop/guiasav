@@ -54,4 +54,4 @@ export default class Topicos extends React.Component {
 
 Topicos.navigationOptions = {
     title: 'Tópicos'
-}
+  }

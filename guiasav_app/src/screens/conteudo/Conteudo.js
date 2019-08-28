@@ -39,4 +39,4 @@ export default class Conteudo extends React.Component {
 
 Conteudo.navigationOptions = {
     title: 'Conteudo',
-}
+  }
