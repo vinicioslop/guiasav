@@ -30,7 +30,7 @@ export default class Conteudo extends React.Component {
 
     render() {
         return (
-            <ScrollView style={{ flex: 1 }}>
+            <ScrollView style={{ flex: 1, padding: 8 }}>
                 <HTML html={this.state.html} />
             </ScrollView>
         );
@@ -39,4 +39,4 @@ export default class Conteudo extends React.Component {
 
 Conteudo.navigationOptions = {
     title: 'Conteudo',
-  }
+}

@@ -1,13 +1,49 @@
 import React from 'react';
 
-import {View, Text} from 'react-native';
+import { ScrollView, FlatList, Text, StyleSheet } from 'react-native';
+
+const uri = 'http://guiasav.diforg.com.br/ws/';
 
 export default class Forum extends React.Component {
-    render(){
-        return(
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Forum</Text>
-            </View>
+
+    constructor() {
+        super();
+        this.state = {
+            forum: []
+        }
+    }
+
+    componentWillMount() {
+        fetch(uri + 'forum')
+            .then(resposta => resposta.json())
+            .then(json => this.setState({ forum: json }));
+    }
+
+    render() {
+        return (
+            <ScrollView style={style.scrollView}>
+                <FlatList
+                    data={this.state.forum}
+                    keyExtractor={item => item.cd_forum}
+                    renderItem={({ item }) =>
+                        <Text style={style.categorias}>{item.nm_forum}</Text>
+                    }
+                />
+            </ScrollView>
         );
     }
+}
+
+const style = StyleSheet.create({
+    scrollView: {
+        flex: 1
+    },
+    categorias: {
+        fontSize: 12,
+
+    }
+});
+
+Forum.navigationOptions = {
+    title: 'Fórum',
 }

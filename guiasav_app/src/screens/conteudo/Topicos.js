@@ -14,6 +14,7 @@ export default class Topicos extends React.Component {
     }
 
     componentWillMount() {
+
         const { navigation } = this.props;
 
         const id = navigation.getParam('id', 'no-id');
@@ -54,4 +55,4 @@ export default class Topicos extends React.Component {
 
 Topicos.navigationOptions = {
     title: 'Tópicos'
-  }
+}

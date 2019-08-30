@@ -10,7 +10,7 @@ const Inicio = ({ navigation }) => (
 );
 
 Inicio.navigationOptions = {
-  title: 'Home',
+  title: 'Home'
 }
 
 export default Inicio;
