@@ -1,5 +1,7 @@
 // src/index.js
 
+import { createAppContainer, createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+
 import Inicio from './screens/Inicio';
 import Categorias from './screens/conteudo/Categorias';
 import Forum from './screens/forum/Forum';
@@ -8,8 +10,6 @@ import Perfil from './screens/perfil/Perfil';
 import Topicos from './screens/conteudo/Topicos';
 import Conteudo from './screens/conteudo/Conteudo';
 
-import { createAppContainer, createBottomTabNavigator, createStackNavigator } from 'react-navigation';
-
 const HomeStack = createStackNavigator({
   Home: Inicio
 });
@@ -17,7 +17,7 @@ const HomeStack = createStackNavigator({
 const CategoriasStack = createStackNavigator({
   Categorias: Categorias,
   Topicos: Topicos,
-  Conteudo
+  Conteudo: Conteudo
 });
 
 const ForumStack = createStackNavigator({
