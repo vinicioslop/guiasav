@@ -12,7 +12,7 @@ export default class Inicio extends React.Component {
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>Home</Text>
         <Button
-          onPress={() => this.goToLogin}
+          onPress={() => this.goToLogin()}
           title="Login"
           color="#841584"
           accessibilityLabel="Vai pro Login"
