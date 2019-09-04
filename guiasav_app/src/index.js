@@ -53,11 +53,12 @@ const Routes = createAppContainer(
   createStackNavigator({
     Login: Login,
     Sign: Sign,
-    Tab: {
-      screen: TabStack,
-      header: null
-    }
-  })
+    Tab: TabStack
+    },{
+      header: null,
+      headerMode: 'none',
+      headerBackTitleVisible: false
+  }),
 );
 
 export default Routes;
