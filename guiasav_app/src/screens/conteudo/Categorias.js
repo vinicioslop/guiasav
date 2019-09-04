@@ -28,7 +28,7 @@ export default class Categorias extends React.Component {
       <ScrollView style={{ flex: 1 }}>
         <FlatList
           data={this.state.categorias}
-          keyExtractor={item => item.cd_category}
+          keyExtractor={item => item.nm_category}
           renderItem={({ item }) =>
             <Button
               onPress={() => this.goToTopics(item.cd_category)}

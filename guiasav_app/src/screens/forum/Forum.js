@@ -13,7 +13,7 @@ export default class Forum extends React.Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         fetch(uri + 'forum')
             .then(resposta => resposta.json())
             .then(json => this.setState({ forum: json }));
@@ -24,7 +24,7 @@ export default class Forum extends React.Component {
             <ScrollView style={style.scrollView}>
                 <FlatList
                     data={this.state.forum}
-                    keyExtractor={item => item.cd_forum}
+                    keyExtractor={item => item.nm_forum}
                     renderItem={({ item }) =>
                         <Text style={style.categorias}>{item.nm_forum}</Text>
                     }

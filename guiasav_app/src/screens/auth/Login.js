@@ -1,8 +1,16 @@
 import React from 'react';
 
-import { View, Text, Button } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
 
 export default class Login extends React.Component {
+
+    constructor() {
+        super();
+        this.state = {
+            email: '',
+            senha: ''
+        }
+    }
 
     login() {
         this.props.navigation.navigate('Inicio');
@@ -14,14 +22,28 @@ export default class Login extends React.Component {
 
     render() {
         return (
-            <View style={{ flex: 1 }}>
-                <Text>Tela de Login</Text>
+            <View style={style.view}>
+                <Text style={style.titulo}>Tela de Login</Text>
+
+                <TextInput
+                    style={style.input}
+                    placeholder={'E-mail'}
+                    onChange={(text) => this.setState({ email: text })}
+                />
+
+                <TextInput
+                    style={style.input}
+                    placeholder={'Senha'}
+                    onChange={(text) => this.setState({ senha: text })}
+                />
+
                 <Button
                     onPress={() => this.login()}
-                    title="Login"
+                    title="Entrar"
                     color="#006BB4"
                     accessibilityLabel="Botão de login azul"
                 />
+
                 <Button
                     onPress={() => this.cadastro()}
                     title="Cadastrar"
@@ -33,6 +55,17 @@ export default class Login extends React.Component {
     }
 }
 
-Login.navigationOptions = {
-    title: 'Login'
-}
+const style = StyleSheet.create({
+    view: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    titulo: {
+        fontSize: 40,
+        paddingBottom: 35
+    },
+    input: {
+        fontSize: 25
+    }
+});

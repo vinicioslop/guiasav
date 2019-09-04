@@ -49,7 +49,7 @@ const TabStack = createBottomTabNavigator({
   Perfil: PerfilStack
 });
 
-const Routes = createAppContainer(
+export default createAppContainer(
   createStackNavigator({
     Login: Login,
     Sign: Sign,
@@ -60,5 +60,3 @@ const Routes = createAppContainer(
       headerBackTitleVisible: false
   }),
 );
-
-export default Routes;

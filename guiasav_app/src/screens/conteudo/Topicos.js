@@ -38,7 +38,7 @@ export default class Topicos extends React.Component {
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <FlatList
                     data={this.state.topicos}
-                    keyExtractor={item => item.cd_topic}
+                    keyExtractor={item => item.nm_topic}
                     renderItem={({ item }) =>
                         <Button
                             onPress={() => this.goToConteudo(item)}
