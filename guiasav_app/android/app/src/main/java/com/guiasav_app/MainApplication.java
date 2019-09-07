@@ -11,6 +11,9 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 
+import com.oblador.vectoricons.VectorIconsPackage;  
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;  
+
 import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
@@ -29,6 +32,15 @@ public class MainApplication extends Application implements ReactApplication {
       // packages.add(new MyReactNativePackage());
       return packages;
     }
+
+    @Override
+    protected List<ReactPackage> getPackages() {  
+      return Arrays.<ReactPackage>asList(  
+        new MainReactPackage(),  
+        new VectorIconsPackage(),  
+        new RNGestureHandlerPackage()  
+    );  
+}  
 
     @Override
     protected String getJSMainModuleName() {

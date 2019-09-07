@@ -13,7 +13,7 @@ export default class Login extends React.Component {
     }
 
     login() {
-        this.props.navigation.navigate('Inicio');
+        this.props.navigation.navigate('Home');
     }
 
     cadastro() {

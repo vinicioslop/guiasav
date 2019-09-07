@@ -2,17 +2,17 @@ import React from 'react';
 
 import { View, Text } from 'react-native';
 
-export default class Perfil extends React.Component {
+export default class Config extends React.Component {
 
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Perfil</Text>
+        <Text>Configurações</Text>
       </View>
     );
   }
 }
 
-Perfil.navigationOptions = {
-  title: 'Perfil',
+Config.navigationOptions = {
+  title: 'Configurações',
 }

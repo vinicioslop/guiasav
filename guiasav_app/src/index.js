@@ -1,4 +1,12 @@
-import { createAppContainer, createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+import React from 'react';
+
+import {
+  createAppContainer,
+  createBottomTabNavigator,
+  createStackNavigator
+} from 'react-navigation';
+
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 //Import AuthStack
 import Login from './screens/auth/Login';
@@ -15,48 +23,77 @@ import Conteudo from './screens/conteudo/Conteudo';
 //Import Stack Forum
 import Forum from './screens/forum/Forum';
 
-//Import Stack Perfil
-import Perfil from './screens/perfil/Perfil';
+//Import Stack Config
+import Config from './screens/configuracoes/Config';
 
 
 //Definição do Stack Inicio
 const HomeStack = createStackNavigator({
-  Inicio: Inicio
+  Inicio: {
+    screen: Inicio
+  },
 });
 
 //Definição do Stack Categorias
 const CategoriasStack = createStackNavigator({
-  Categorias: Categorias,
-  Topicos: Topicos,
-  Conteudo: Conteudo
+  Categorias: {
+    screen: Categorias
+  },
+  Topicos: {
+    screen: Topicos
+  },
+  Conteudo: {
+    screen: Conteudo
+  }
 });
 
 //Definição do Stack Forum
 const ForumStack = createStackNavigator({
-  Forum: Forum
+  Forum: {
+    screen: Forum
+  }
 });
 
-//Definição do Stack Perfil
-const PerfilStack = createStackNavigator({
-  Perfil: Perfil
+//Definição do Stack Config
+const ConfigStack = createStackNavigator({
+  Config: {
+    screen: Config
+  }
 });
 
 //Definição do TabStack
-const TabStack = createBottomTabNavigator({
-  Inicio: HomeStack,
-  Categorias: CategoriasStack,
-  Forum: ForumStack,
-  Perfil: PerfilStack
-});
+const TabStack = createBottomTabNavigator(
+  {
+    "Home": {
+      screen: HomeStack
+    },
+    "Categorias": {
+      screen: CategoriasStack
+    },
+    "Fórum": {
+      screen: ForumStack
+    },
+    "Configurações": {
+      screen: ConfigStack
+    },
+  },
+  {
+    
+  }
+);
 
 export default createAppContainer(
   createStackNavigator({
-    Login: Login,
-    Sign: Sign,
+    Login: {
+      screen: Login
+    },
+    Sign: {
+      screen: Sign
+    },
     Tab: TabStack
-    },{
-      header: null,
-      headerMode: 'none',
-      headerBackTitleVisible: false
+  }, {
+    header: null,
+    headerMode: 'none',
+    headerBackTitleVisible: false
   }),
 );

@@ -1,16 +1,16 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, StyleSheet, Text, Button } from 'react-native';
 
 export default class Inicio extends React.Component {
 
-  goToLogin(){
+  goToLogin() {
     this.props.navigation.navigate('Login');
   }
 
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Home</Text>
+      <View style={style.container}>
+        <Text style={style.texto}>Home</Text>
         <Button
           onPress={() => this.goToLogin()}
           title="Login"
@@ -21,6 +21,17 @@ export default class Inicio extends React.Component {
     );
   }
 }
+
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  texto: {
+    
+  },
+});
 
 Inicio.navigationOptions = {
   title: 'Home'
