@@ -26,13 +26,21 @@ import Forum from './screens/forum/Forum';
 //Import Stack Config
 import Config from './screens/configuracoes/Config';
 
-
-//Definição do Stack Inicio
-const HomeStack = createStackNavigator({
-  Inicio: {
-    screen: Inicio
+//Definição do Stack Home
+const HomeStack = createStackNavigator(
+  {
+    Inicio: {
+      screen: Inicio
+    },
   },
-});
+  {
+    defaultNavigationOptions: {
+      /*headerStyle: {
+        backgroundColor: 'black'
+      }*/
+    }
+  }
+);
 
 //Definição do Stack Categorias
 const CategoriasStack = createStackNavigator({
@@ -65,7 +73,10 @@ const ConfigStack = createStackNavigator({
 const TabStack = createBottomTabNavigator(
   {
     "Home": {
-      screen: HomeStack
+      screen: HomeStack,
+      tabBarIcon: {
+
+      }
     },
     "Categorias": {
       screen: CategoriasStack
@@ -78,7 +89,14 @@ const TabStack = createBottomTabNavigator(
     },
   },
   {
-    
+    tabBarOptions: {
+      //showLabel: false,
+      activeTintColor: 'green',
+      inactiveTintColor: 'gray',
+      /*style: {
+        backgroundColor: 'black'
+      }*/
+    },
   }
 );
 
