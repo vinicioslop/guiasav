@@ -2,15 +2,12 @@ import React from 'react';
 
 import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
 
-export default class Login extends React.Component {
+const user = {
+    email: 'admin@admin.com',
+    senha: 'admin'
+}
 
-    constructor() {
-        super();
-        this.state = {
-            email: '',
-            senha: ''
-        }
-    }
+export default class Login extends React.Component {
 
     login() {
         this.props.navigation.navigate('Home');
@@ -28,13 +25,13 @@ export default class Login extends React.Component {
                 <TextInput
                     style={style.input}
                     placeholder={'E-mail'}
-                    onChange={(text) => this.setState({ email: text })}
+                    onChange={() => console.warn('Digitou algo no login!')}
                 />
 
                 <TextInput
                     style={style.input}
                     placeholder={'Senha'}
-                    onChange={(text) => this.setState({ senha: text })}
+                    onChange={() => console.warn('Digitou algo na senha!')}
                 />
 
                 <Button
