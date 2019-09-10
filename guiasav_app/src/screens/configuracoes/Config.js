@@ -15,17 +15,13 @@ export default class Config extends React.Component {
     }
   }
 
-  componentDidMount() {
-    
-  }
-
   render() {
     return (
       <View style={style.containier}>
         <View style={style.iconName}>
           <Image
             style={style.userImage}
-            source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/At_sign.svg/250px-At_sign.svg.png'}}
+            source={require('../../images/@.png')}
           />
           <Text style={style.userName}>{this.state.user.nome}</Text>
         </View>

@@ -60,7 +60,7 @@ const style = StyleSheet.create({
     },
     titulo: {
         fontSize: 40,
-        paddingBottom: 35
+        paddingBottom: 25
     },
     input: {
         fontSize: 25

@@ -10,7 +10,7 @@ const user = {
 export default class Login extends React.Component {
 
     login() {
-        this.props.navigation.navigate('Home');
+        this.props.navigation.navigate('Inicio');
     }
 
     cadastro() {
@@ -35,6 +35,7 @@ export default class Login extends React.Component {
                 />
 
                 <Button
+                    style={style.button}
                     onPress={() => this.login()}
                     title="Entrar"
                     color="#006BB4"
@@ -42,6 +43,7 @@ export default class Login extends React.Component {
                 />
 
                 <Button
+                    style={style.button}
                     onPress={() => this.cadastro()}
                     title="Cadastrar"
                     color="#006BB4"
@@ -56,13 +58,18 @@ const style = StyleSheet.create({
     view: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     titulo: {
         fontSize: 40,
-        paddingBottom: 35
+        paddingBottom: 25
     },
     input: {
-        fontSize: 25
+        fontSize: 25,
+        color: 'black',
+        paddingBottom: 10
+    },
+    button: {
+        paddingBottom: 5
     }
 });
