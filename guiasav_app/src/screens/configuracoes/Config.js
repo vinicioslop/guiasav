@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { View, Text, Image } from 'react-native';
+
+import style from './css/style';
 
 export default class Config extends React.Component {
 
@@ -29,25 +31,6 @@ export default class Config extends React.Component {
     );
   }
 }
-
-const style = StyleSheet.create({
-  containier: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  iconName: {
-    
-  },
-  userImage: {
-    width: 100,
-    height: 100,
-    paddingBottom: 5
-  },
-  userName: {
-    fontSize: 25
-  }
-});
 
 Config.navigationOptions = {
   title: 'Configurações',

@@ -6,6 +6,8 @@ import { ScrollView } from 'react-native';
 
 import HTML from 'react-native-render-html';
 
+import style from './css/style';
+
 export default class Conteudo extends React.Component {
 
     constructor() {
@@ -16,7 +18,7 @@ export default class Conteudo extends React.Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         const { navigation } = this.props;
 
         const dados = navigation.getParam('dados', 'no-data');
@@ -30,8 +32,10 @@ export default class Conteudo extends React.Component {
 
     render() {
         return (
-            <ScrollView style={{ flex: 1, padding: 8 }}>
-                <HTML html={this.state.html} />
+            <ScrollView style={style.view}>
+                <HTML
+                    html={this.state.html}
+                />
             </ScrollView>
         );
     }

@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { ScrollView, FlatList, Text, StyleSheet } from 'react-native';
+import { ScrollView, FlatList, Text } from 'react-native';
+
+import style from './css/style';
 
 const uri = 'http://guiasav.diforg.com.br/ws/';
 
@@ -33,16 +35,6 @@ export default class Forum extends React.Component {
         );
     }
 }
-
-const style = StyleSheet.create({
-    scrollView: {
-        flex: 1
-    },
-    categorias: {
-        fontSize: 12,
-
-    }
-});
 
 Forum.navigationOptions = {
     title: 'Fórum',

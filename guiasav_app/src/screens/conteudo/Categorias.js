@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { ScrollView, FlatList, Button } from 'react-native';
+import { View, Text, ScrollView, FlatList, TouchableHighlight } from 'react-native';
+
+import style from './css/style';
 
 const uri = 'http://guiasav.diforg.com.br/ws/';
 
@@ -25,17 +27,16 @@ export default class Categorias extends React.Component {
 
   render() {
     return (
-      <ScrollView style={{ flex: 1 }}>
+      <ScrollView style={style.view}>
         <FlatList
           data={this.state.categorias}
           keyExtractor={item => item.nm_category}
           renderItem={({ item }) =>
-            <Button
-              onPress={() => this.goToTopics(item.cd_category)}
-              title={item.nm_category}
-              color={"#841584"}
-              accessibilityLabel={item.nm_category}
-            />
+            <TouchableHighlight onPress={() => this.goToTopics(item.cd_category)}>
+              <View style={style.botao}>
+                <Text style={style.contBotao}>{item.nm_category}</Text>
+              </View>
+            </TouchableHighlight>
           }
         />
       </ScrollView>

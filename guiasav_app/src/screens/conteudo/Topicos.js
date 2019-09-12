@@ -2,6 +2,8 @@ import React from 'react';
 
 import { View, Button, FlatList } from 'react-native';
 
+import style from './css/style';
+
 const uri = 'http://guiasav.diforg.com.br/ws/';
 
 export default class Topicos extends React.Component {
@@ -13,7 +15,7 @@ export default class Topicos extends React.Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
 
         const { navigation } = this.props;
 
@@ -35,7 +37,7 @@ export default class Topicos extends React.Component {
     render() {
 
         return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <View style={style.view}>
                 <FlatList
                     data={this.state.topicos}
                     keyExtractor={item => item.nm_topic}

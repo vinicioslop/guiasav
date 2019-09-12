@@ -8,17 +8,23 @@ import {
   createStackNavigator
 } from 'react-navigation';
 
+//Estilo do tabs
+import style from './tabStyle/style'
+
 //Import AuthStack
 import Login from './screens/auth/Login';
 import Sign from './screens/auth/Sign';
 
-//Import Stack Inicio
+//Import Stack Home
 import Inicio from './screens/Inicio';
+
+//Import Stack Favoritos
+import Favoritos from './screens/favoritos/Favoritos';
 
 //Import Stack Categorias
 import Categorias from './screens/conteudo/Categorias';
 import Topicos from './screens/conteudo/Topicos';
-import Conteudo from './screens/conteudo/Conteudo';
+import Conteudo from './screens/conteudo/conteudo/Conteudo';
 
 //Import Stack Forum
 import Forum from './screens/forum/Forum';
@@ -30,17 +36,24 @@ import Config from './screens/configuracoes/Config';
 const HomeStack = createStackNavigator(
   {
     Inicio: {
-      screen: Inicio
+      screen: Inicio,
     },
   },
   {
     defaultNavigationOptions: {
-      /*headerStyle: {
-        backgroundColor: 'black'
-      }*/
+      headerTitleStyle: {
+
+      }
     }
   }
 );
+
+//Definição do Stack Favoritos
+const FavoritosStack = createStackNavigator({
+  Favoritos: {
+    screen: Favoritos
+  }
+});
 
 //Definição do Stack Categorias
 const CategoriasStack = createStackNavigator({
@@ -72,57 +85,63 @@ const ConfigStack = createStackNavigator({
 //Definição do TabStack
 const TabStack = createBottomTabNavigator(
   {
-    Inicio: {
-      screen: HomeStack,
-      title: "Home",
+    "Home": {
+      screen: HomeStack
     },
-    Cat: {
-      screen: CategoriasStack,
-      title: "Categorias"
+    "Favoritos": {
+      screen: FavoritosStack
     },
-    Forum: {
-      screen: ForumStack,
-      title: "Fórum"
+    "Categorias": {
+      screen: CategoriasStack
     },
-    Config: {
-      screen: ConfigStack,
-      title: "COnfigurações"
+    "Fórum": {
+      screen: ForumStack
+    },
+    "Configurações": {
+      screen: ConfigStack
     },
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
         const { routeName } = navigation.state;
-        if (routeName === 'Inicio') {
+        if (routeName === 'Home') {
           return (
             <Image
-              source={require('./icons/home.png')}
-              style={{ width: 20, height: 20, }} />
+              source={require('./icons/tab_icons/home.png')}
+              style={style.icon} />
           );
-        } else if (routeName === 'Cat') {
+        } else if (routeName === 'Favoritos') {
           return (
             <Image
-              source={require('./icons/cat.png')}
-              style={{ width: 20, height: 20, }} />
+              source={require('./icons/tab_icons/favorito.png')}
+              style={style.icon} />
           );
-        } else if (routeName === 'Forum') {
+        } else if (routeName === 'Categorias') {
           return (
             <Image
-              source={require('./icons/forum.png')}
-              style={{ width: 20, height: 20, }} />
+              source={require('./icons/tab_icons/cat.png')}
+              style={style.icon} />
           );
-        } else if (routeName === 'Config') {
+        } else if (routeName === 'Fórum') {
           return (
             <Image
-              source={require('./icons/config.png')}
-              style={{ width: 20, height: 20, }} />
+              source={require('./icons/tab_icons/forum.png')}
+              style={style.icon} />
+          );
+        } else if (routeName === 'Configurações') {
+          return (
+            <Image
+              source={require('./icons/tab_icons/config.png')}
+              style={style.icon} />
           );
         }
       }
     }),
     tabBarOptions: {
-      activeTintColor: '#FF6F00',
-      inactiveTintColor: '#263238',
+      activeTintColor: '#00AA44',
+      inactiveTintColor: '#005522',
+      showLabel: false
     },
   }
 );

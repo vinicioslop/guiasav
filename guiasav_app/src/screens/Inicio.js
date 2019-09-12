@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, StyleSheet, Text, Button } from 'react-native';
+import { View, Text, Button, TouchableHighlight } from 'react-native';
+
+import style from './home-css/style';
 
 export default class Inicio extends React.Component {
 
@@ -10,7 +12,6 @@ export default class Inicio extends React.Component {
   render() {
     return (
       <View style={style.container}>
-        <Text style={style.texto}>Home</Text>
         <Button
           onPress={() => this.goToLogin()}
           title="Login"
@@ -21,18 +22,6 @@ export default class Inicio extends React.Component {
     );
   }
 }
-
-const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    //backgroundColor: '#00D455'
-  },
-  texto: {
-    
-  },
-});
 
 Inicio.navigationOptions = {
   title: 'Home'
